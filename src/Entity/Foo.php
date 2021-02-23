@@ -21,8 +21,7 @@ class Foo
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=Bar::class, mappedBy="foo", orphanRemoval=true)
-     * @Assert\Valid
+     * @ORM\OneToMany(targetEntity=Bar::class, mappedBy="foo", orphanRemoval=true, cascade={"persist"})
      */
     private $bars;
 

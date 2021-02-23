@@ -17,19 +17,18 @@ class HomeController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $em = $this->getDoctrine()->getManager();
 
         $foo = new Foo();
         for ($i = 0; $i < 3; $i++) {
             $bar = new Bar();
             $foo->addBar($bar);
-            $em->persist($bar);
         }
 
         $form = $this->createForm(FooType::class, $foo);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($foo);
             $em->flush();
             return $this->redirectToRoute('home');
