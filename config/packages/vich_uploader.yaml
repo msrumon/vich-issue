@@ -1,7 +1,8 @@
 vich_uploader:
     db_driver: orm
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
+    mappings:
+        foo_bars:
+            uri_prefix: /bars
+            upload_destination: '%kernel.project_dir%/public/bars'
+            namer: Vich\UploaderBundle\Naming\HashNamer
